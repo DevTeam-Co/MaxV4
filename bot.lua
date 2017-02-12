@@ -6,8 +6,8 @@ notify = lgi.require('Notify')
 notify.init ("Telegram updates")
 chats = {}
 day = 86400
-bot_id = 329966152 -- Your Bot USER_ID
-sudo_users = {145210026}
+bot_id = 317956104
+sudo_users = {274807882}
   -----------------------------------------------------------------------------------------------
                                      -- start functions --
   -----------------------------------------------------------------------------------------------
@@ -604,63 +604,63 @@ function tdcli_update_callback(data)
     -------------* MSG TYPES *-----------------
    if msg.content_ then
    	if msg.reply_markup_ and  msg.reply_markup_.ID == "ReplyMarkupInlineKeyboard" then
-		print("INLINE KEYBOARD DETECTED!!")
+		print("Send INLINE KEYBOARD")
 	msg_type = 'MSG:Inline'
 	-------------------------
     elseif msg.content_.ID == "MessageText" then
 	text = msg.content_.text_
-		print("TEXT MSG DETECTED!!")
+		print("SEND TEXT")
 	msg_type = 'MSG:Text'
 	-------------------------
 	elseif msg.content_.ID == "MessagePhoto" then
-	print("PHOTO DETECTED!!")
+	print("SEND PHOTO")
 	if msg.content_.caption_ then
 	caption_text = msg.content_.caption_
 	end
 	msg_type = 'MSG:Photo'
 	-------------------------
 	elseif msg.content_.ID == "MessageChatAddMembers" then
-	print("NEW ADD DETECTED!!")
+	print("NEW ADD TO GROUP")
 	msg_type = 'MSG:NewUserAdd'
 	-------------------------
 	elseif msg.content_.ID == "MessageChatJoinByLink" then
-		print("NEW JOIN DETECTED!!")
+		print("JOIN TO GROUP")
 	msg_type = 'MSG:NewUserLink'
 	-------------------------
 	elseif msg.content_.ID == "MessageSticker" then
-		print("STICKER DETECTED!!")
+		print("SEND STICKER")
 	msg_type = 'MSG:Sticker'
 	-------------------------
 	elseif msg.content_.ID == "MessageAudio" then
-		print("MUSIC DETECTED!!")
+		print("SEND MUSIC")
 	if msg.content_.caption_ then
 	caption_text = msg.content_.caption_
 	end
 	msg_type = 'MSG:Audio'
 	-------------------------
 	elseif msg.content_.ID == "MessageVoice" then
-		print("VOICE DETECTED!!")
+		print("SEND VOICE")
 	if msg.content_.caption_ then
 	caption_text = msg.content_.caption_
 	end
 	msg_type = 'MSG:Voice'
 	-------------------------
 	elseif msg.content_.ID == "MessageVideo" then
-		print("VIDEO DETECTED!!")
+		print("SEND VIDEO")
 	if msg.content_.caption_ then
 	caption_text = msg.content_.caption_
 	end
 	msg_type = 'MSG:Video'
 	-------------------------
 	elseif msg.content_.ID == "MessageAnimation" then
-		print("GIF DETECTED!!")
+		print("SEND GIF")
 	if msg.content_.caption_ then
 	caption_text = msg.content_.caption_
 	end
 	msg_type = 'MSG:Gif'
 	-------------------------
 	elseif msg.content_.ID == "MessageLocation" then
-		print("LOCATION DETECTED!!")
+		print("SEND LOCATION")
 	if msg.content_.caption_ then
 	caption_text = msg.content_.caption_
 	end
@@ -670,7 +670,7 @@ function tdcli_update_callback(data)
 	msg_type = 'MSG:NewUser'
 	-------------------------
 	elseif msg.content_.ID == "MessageContact" then
-		print("CONTACT DETECTED!!")
+		print("SEND CONTACT")
 	if msg.content_.caption_ then
 	caption_text = msg.content_.caption_
 	end
@@ -1006,7 +1006,7 @@ if database:get('bot:forward:mute'..msg.chat_id_) then
    end
    if caption_text then
       check_filter_words(msg, caption_text)
-  if caption_text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or caption_text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") then
+  if caption_text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or caption_text:match("[Tt].[Mm][Ee]") or caption_text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") then
    if database:get('bot:links:mute'..msg.chat_id_) then
     local id = msg.id_
         local msgs = {[0] = id}
@@ -1077,7 +1077,7 @@ if database:get('bot:forward:mute'..msg.chat_id_) then
    end
    if caption_text then
       check_filter_words(msg, caption_text)
-   if caption_text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or caption_text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") then
+   if caption_text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or caption_text:match("[Tt].[Mm][Ee]") or caption_text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") then
    if database:get('bot:links:mute'..msg.chat_id_) then
     local id = msg.id_
         local msgs = {[0] = id}
@@ -1148,7 +1148,7 @@ if database:get('bot:forward:mute'..msg.chat_id_) then
    end
    if caption_text then
       check_filter_words(msg, caption_text)
-  if caption_text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or caption_text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") then
+  if caption_text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or caption_text:match("[Tt].[Mm][Ee]") or caption_text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") then
    if database:get('bot:links:mute'..msg.chat_id_) then
     local id = msg.id_
         local msgs = {[0] = id}
@@ -1219,7 +1219,7 @@ if database:get('bot:forward:mute'..msg.chat_id_) then
    end
    if caption_text then
    check_filter_words(msg, caption_text)
-   if caption_text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or caption_text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") then
+   if caption_text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or caption_text:match("[Tt].[Mm][Ee]") or caption_text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") then
    if database:get('bot:links:mute'..msg.chat_id_) then
     local id = msg.id_
         local msgs = {[0] = id}
@@ -1271,13 +1271,7 @@ if database:get('bot:forward:mute'..msg.chat_id_) then
    end
 elseif msg_type == 'MSG:Text' then
  --vardump(msg)
-    if database:get("bot:group:link"..msg.chat_id_) == 'Waiting For Link!\nPls Send Group Link.\n\nJoin My Channel > @Black_Ch' and is_mod(msg.sender_user_id_, msg.chat_id_) then
-      if text:match("(https://telegram.me/joinchat/%S+)") then
-	  local glink = text:match("(https://telegram.me/joinchat/%S+)")
-      local hash = "bot:group:link"..msg.chat_id_
-               database:set(hash,glink)
-			  send(msg.chat_id_, msg.id_, 1, '*New link Set!*', 1, 'md')
-			  send(msg.chat_id_, 0, 1, '<b>New Group link:</b>\n'..glink, 1, 'html')
+    if database:get("bot:group:link"..msg.chat_id_) == 'Waiting For Link!\nPls Send Group Link.\n\nJoin My Channel > @NotTeam' and is_mod(msg.sender_user_id_, msg.chat_id_) then if text:match("(https://telegram.me/joinchat/%S+)") then 	 local glink = text:match("(https://telegram.me/joinchat/%S+)") local hash = "bot:group:link"..msg.chat_id_ database:set(hash,glink) 			 send(msg.chat_id_, msg.id_, 1, '*New link Set!*', 1, 'md')
       end
    end
     function check_username(extra,result,success)
@@ -1298,7 +1292,9 @@ elseif msg_type == 'MSG:Text' then
    database:set('bot:editid'.. msg.id_,msg.content_.text_)
    if not is_mod(msg.sender_user_id_, msg.chat_id_) then
     check_filter_words(msg, text)
-	if text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") then
+	if text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or 
+text:match("[Tt].[Mm][Ee]") or
+text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") then
      if database:get('bot:links:mute'..msg.chat_id_) then
      local id = msg.id_
         local msgs = {[0] = id}
@@ -1521,7 +1517,7 @@ if database:get('bot:forward:mute'..msg.chat_id_) then
          send(msg.chat_id_, msg.id_, 1, '<b>All Msg From user</b> <code>'..ass[2]..'</code> <b>Deleted!</b>', 1, 'html')
     end
 	end
-	-----------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------
 	if text:match("^[#!/]delall @(.*)$") and is_owner(msg.sender_user_id_, msg.chat_id_) then
 	local ap = {string.match(text, "^[#/!](delall) @(.*)$")} 
 	function delall_by_username(extra, result, success)
@@ -1727,7 +1723,7 @@ if database:get('bot:forward:mute'..msg.chat_id_) then
          send(msg.chat_id_, msg.id_, 1, '_User_ *'..result.sender_user_id_..'* _is Already Admin._', 1, 'md')
 	else
          database:sadd(hash, result.sender_user_id_)
-         send(msg.chat_id_, msg.id_, 1, '_User_ *'..result.sender_user_id_..'* _Added to BlackPlus admins._', 1, 'md')
+         send(msg.chat_id_, msg.id_, 1, '_User_ *'..result.sender_user_id_..'* _Added to MeGaNot admins._', 1, 'md')
 	end
     end
 	      getMessage(msg.chat_id_, msg.reply_to_message_id_,addadmin_by_reply)
@@ -1738,7 +1734,7 @@ if database:get('bot:forward:mute'..msg.chat_id_) then
 	function addadmin_by_username(extra, result, success)
 	if result.id_ then
 	        database:sadd('bot:admins:', result.id_)
-            texts = '<b>User </b><code>'..result.id_..'</code> <b>Added to BlackPlus admins.!</b>'
+            texts = '<b>User </b><code>'..result.id_..'</code> <b>Added to MeGaNot admins.!</b>'
             else 
             texts = '<code>User not found!</code>'
     end
@@ -1750,7 +1746,7 @@ if database:get('bot:forward:mute'..msg.chat_id_) then
 	if text:match("^[#!/]addadmin (%d+)$") and is_sudo(msg) then
 	local ap = {string.match(text, "^[#/!](addadmin) (%d+)$")} 	
 	        database:sadd('bot:admins:', ap[2])
-	send(msg.chat_id_, msg.id_, 1, '_User_ *'..ap[2]..'* _Added to BlackPlus admins._', 1, 'md')
+	send(msg.chat_id_, msg.id_, 1, '_User_ *'..ap[2]..'* _Added to MeGaNot admins._', 1, 'md')
     end
 	-----------------------------------------------------------------------------------------------
 	if text:match("^[#!/]remadmin$") and is_sudo(msg) and msg.reply_to_message_id_ then
@@ -1760,7 +1756,7 @@ if database:get('bot:forward:mute'..msg.chat_id_) then
          send(msg.chat_id_, msg.id_, 1, '_User_ *'..result.sender_user_id_..'* _is not Admin._', 1, 'md')
 	else
          database:srem(hash, result.sender_user_id_)
-         send(msg.chat_id_, msg.id_, 1, '_User_ *'..result.sender_user_id_..'* _Removed from Blackplus Admins!._', 1, 'md')
+         send(msg.chat_id_, msg.id_, 1, '_User_ *'..result.sender_user_id_..'* _Removed from MeGaNot Admins!._', 1, 'md')
 	end
     end
 	      getMessage(msg.chat_id_, msg.reply_to_message_id_,deadmin_by_reply)
@@ -1772,7 +1768,7 @@ if database:get('bot:forward:mute'..msg.chat_id_) then
 	function remadmin_by_username(extra, result, success)
 	if result.id_ then
          database:srem(hash, result.id_)
-            texts = '<b>User </b><code>'..result.id_..'</code> <b>Removed from Blackplus Admins!</b>'
+            texts = '<b>User </b><code>'..result.id_..'</code> <b>Removed from MeGaNot Admins!</b>'
             else 
             texts = '<code>User not found!</code>'
     end
@@ -1785,7 +1781,7 @@ if database:get('bot:forward:mute'..msg.chat_id_) then
 	local hash = 'bot:admins:'
 	local ap = {string.match(text, "^[#/!](remadmin) (%d+)$")} 	
          database:srem(hash, ap[2])
-	send(msg.chat_id_, msg.id_, 1, '_User_ *'..ap[2]..'* Removed from Blackplus Admins!_', 1, 'md')
+	send(msg.chat_id_, msg.id_, 1, '_User_ *'..ap[2]..'* Removed from MeGaNot Admins!_', 1, 'md')
     end
 	-----------------------------------------------------------------------------------------------
 	if text:match("^[#!/]modlist$") and is_mod(msg.sender_user_id_, msg.chat_id_) then
@@ -1867,7 +1863,7 @@ if database:get('bot:forward:mute'..msg.chat_id_) then
 	if text:match("^[#!/]adminlist$") and is_sudo(msg) then
     local hash =  'bot:admins:'
 	local list = database:smembers(hash)
-	local text = "BlackPlus Admins:\n\n"
+	local text = "Bot Admins : \n\n"
 	for k,v in pairs(list) do
 	local user_info = database:hgetall('user:'..v)
 		if user_info and user_info.username then
@@ -1886,7 +1882,7 @@ if database:get('bot:forward:mute'..msg.chat_id_) then
     if text:match("^[#!/]id$") and msg.reply_to_message_id_ ~= 0 then
       function id_by_reply(extra, result, success)
 	  local user_msgs = database:get('user:msgs'..result.chat_id_..':'..result.sender_user_id_)
-        send(msg.chat_id_, msg.id_, 1, "*> User ID:* `"..result.sender_user_id_.."`\n*> Number of Msgs:* `"..user_msgs.."`", 1, 'md')
+        send(msg.chat_id_, msg.id_, 1, "*User ID:* `"..result.sender_user_id_.."`", 1, 'md')
         end
    getMessage(msg.chat_id_, msg.reply_to_message_id_,id_by_reply)
   end
@@ -1906,7 +1902,7 @@ if database:get('bot:forward:mute'..msg.chat_id_) then
       else
 	  t = 'Member'
 	  end
-            texts = '*> Username* : `@'..ap[2]..'`\n*> ID* : `('..result.id_..')`\n*> Rank* : `'..t..'`'
+            texts = '*Username* : `@'..ap[2]..'`\n*ID* : `('..result.id_..')`\n*> Rank* : `'..t..'`'
             else 
             texts = '<code>User not found!</code>'
     end
@@ -1933,23 +1929,6 @@ if database:get('bot:forward:mute'..msg.chat_id_) then
         end
    getMessage(msg.chat_id_, msg.reply_to_message_id_,inv_reply)
     end
-	-----------------------------------------------------------------------------------------------
-    if text:match("^[#!/]id$") and msg.reply_to_message_id_ == 0  then
-local function getpro(extra, result, success)
-local user_msgs = database:get('user:msgs'..msg.chat_id_..':'..msg.sender_user_id_)
-   if result.photos_[0] then
-            sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_,'> Supergroup ID: '..msg.chat_id_..'\n> Your ID: '..msg.sender_user_id_..'\n> Number of your Msgs: '..user_msgs,msg.id_,msg.id_)
-   else
-      send(msg.chat_id_, msg.id_, 1, "You Have'nt Profile Photo!!\n\n> *Supergroup ID:* `"..msg.chat_id_.."`\n*> Your ID:* `"..msg.sender_user_id_.."`\n*> Number of your Msgs: *`"..user_msgs.."`", 1, 'md')
-   end
-   end
-   tdcli_function ({
-    ID = "GetUserProfilePhotos",
-    user_id_ = msg.sender_user_id_,
-    offset_ = 0,
-    limit_ = 1
-  }, getpro, nil)
-	end
 	-----------------------------------------------------------------------------------------------
     if text:match("^[#!/]getpro (%d+)$") and msg.reply_to_message_id_ == 0  then
 		local pronumb = {string.match(text, "^[#/!](getpro) (%d+)$")} 
@@ -2137,7 +2116,7 @@ local function gpro(extra, result, success)
 	local filters = {string.match(text, "^[#/!](filter) (.*)$")} 
     local name = string.sub(filters[2], 1, 50)
           database:hset('bot:filters:'..msg.chat_id_, name, 'filtered')
-		  send(msg.chat_id_, msg.id_, 1, "*New Word Filtered!*\n> `"..name.."`", 1, 'md')
+		  send(msg.chat_id_, msg.id_, 1, "*New Word Filtered!*\n--> `"..name.."`", 1, 'md')
 	end
 	-----------------------------------------------------------------------------------------------
 	if text:match("^[#!/]rw (.*)$") and is_mod(msg.sender_user_id_, msg.chat_id_) then
@@ -2162,10 +2141,10 @@ local function gpro(extra, result, success)
        end
     end
 	-----------------------------------------------------------------------------------------------
-	if text:match("^[#!/]broadcast (.*)$") and is_admin(msg.sender_user_id_, msg.chat_id_) then
+	if text:match("^[#!/]bc (.*)$") and is_admin(msg.sender_user_id_, msg.chat_id_) then
     local gps = database:scard("bot:groups") or 0
     local gpss = database:smembers("bot:groups") or 0
-	local rws = {string.match(text, "^[#/!](broadcast) (.*)$")} 
+	local rws = {string.match(text, "^[#/!](bc) (.*)$")} 
 	for i=1, #gpss do
 		  send(gpss[i], 0, 1, rws[2], 1, 'md')
     end
@@ -2176,7 +2155,7 @@ local function gpro(extra, result, success)
     local gps = database:scard("bot:groups")
 	local users = database:scard("bot:userss")
     local allmgs = database:get("bot:allmsgs")
-                   send(msg.chat_id_, msg.id_, 1, '*Stats*\n\n_> Groups: _ `'..gps..'`\n_> Users: _ `'..users..'`\n_> All msgs: _ `'..allmgs..'`', 1, 'md')
+                   send(msg.chat_id_, msg.id_, 1, '*Groups :* `'..gps..'`', 1, 'md')
 	end
 	-----------------------------------------------------------------------------------------------
   	if text:match("^[#!/]unlock (.*)$") and is_mod(msg.sender_user_id_, msg.chat_id_) then
@@ -2408,41 +2387,41 @@ local function gpro(extra, result, success)
        end
     end
 	-----------------------------------------------------------------------------------------------
-  	if text:match("^[#!/]settings$") and is_mod(msg.sender_user_id_, msg.chat_id_) then
+  	 if text:match("^[#!/]settings$") and is_mod(msg.sender_user_id_, msg.chat_id_) then
 	if database:get('bot:muteall'..msg.chat_id_) then
-	mute_all = 'Lock'
+	mute_all = '`[قفل | 🔐]`'
 	else
-	mute_all = 'Unlock'
+	mute_all = '`[آزاد | 🔓]`'
 	end
 	------------
 	if database:get('bot:text:mute'..msg.chat_id_) then
-	mute_text = 'Lock'
+	mute_text = '`[قفل | 🔐]`'
 	else
-	mute_text = 'Unlock'
+	mute_text = '`[آزاد | 🔓]`'
 	end
 	------------
 	if database:get('bot:photo:mute'..msg.chat_id_) then
-	mute_photo = 'Lock'
+	mute_photo = '`[قفل | 🔐]`'
 	else
-	mute_photo = 'Unlock'
+	mute_photo = '`[آزاد | 🔓]`'
 	end
 	------------
 	if database:get('bot:video:mute'..msg.chat_id_) then
-	mute_video = 'Lock'
+	mute_video = '`[قفل | 🔐]`'
 	else
-	mute_video = 'Unlock'
+	mute_video = '`[آزاد | 🔓]`'
 	end
 	------------
 	if database:get('bot:gifs:mute'..msg.chat_id_) then
-	mute_gifs = 'Lock'
+	mute_gifs = '`[قفل | 🔐]`'
 	else
-	mute_gifs = 'Unlock'
+	mute_gifs = '`[آزاد | 🔓]`'
 	end
 	------------
 	if database:get('anti-flood:'..msg.chat_id_) then
-	mute_flood = 'Unlock'
+	mute_flood = '`[آزاد | 🔓]`'
 	else
-	mute_flood = 'Lock'
+	mute_flood = '`[قفل | 🔐]`'
 	end
 	------------
 	if not database:get('flood:max:'..msg.chat_id_) then
@@ -2458,159 +2437,130 @@ local function gpro(extra, result, success)
 	end
 	------------
 	if database:get('bot:music:mute'..msg.chat_id_) then
-	mute_music = 'Lock'
+	mute_music = '`[قفل | 🔐]`'
 	else
-	mute_music = 'Unlock'
+	mute_music = '`[آزاد | 🔓]`'
 	end
 	------------
 	if database:get('bot:bots:mute'..msg.chat_id_) then
-	mute_bots = 'Lock'
+	mute_bots = '`[قفل | 🔐]`'
 	else
-	mute_bots = 'Unlock'
+	mute_bots = '`[آزاد | 🔓]`'
 	end
 	------------
 	if database:get('bot:inline:mute'..msg.chat_id_) then
-	mute_in = 'Lock'
+	mute_in = '`[قفل | 🔐]`'
 	else
-	mute_in = 'Unlock'
+	mute_in = '`[آزاد | 🔓]`'
 	end
 	------------
 	if database:get('bot:cmds'..msg.chat_id_) then
-	mute_cmd = 'Disable'
+	mute_cmd = '[غیر فعال|⭕]'
 	else
-	mute_cmd = 'Enable'
+	mute_cmd = '[فعال|✔]'
 	end
 	------------
 	if database:get('bot:voice:mute'..msg.chat_id_) then
-	mute_voice = 'Lock'
+	mute_voice = '`[قفل | 🔐]`'
 	else
-	mute_voice = 'Unlock'
+	mute_voice = '`[آزاد | 🔓]`'
 	end
 	------------
 	if database:get('editmsg'..msg.chat_id_) then
-	mute_edit = 'Lock'
+	mute_edit = '`[قفل | 🔐]`'
 	else
-	mute_edit = 'Unlock'
+	mute_edit = '`[آزاد | 🔓]`'
 	end
     ------------
 	if database:get('bot:links:mute'..msg.chat_id_) then
-	mute_links = 'Lock'
+	mute_links = '`[قفل | 🔐]`'
 	else
-	mute_links = 'Unlock'
+	mute_links = '`[آزاد | 🔓]`'
 	end
     ------------
 	if database:get('bot:pin:mute'..msg.chat_id_) then
-	lock_pin = 'Lock'
+	lock_pin = '`[قفل | 🔐]`'
 	else
-	lock_pin = 'Unlock'
+	lock_pin = '`[آزاد | 🔓]`'
 	end 
     ------------
 	if database:get('bot:sticker:mute'..msg.chat_id_) then
-	lock_sticker = 'Lock'
+	lock_sticker = '`[قفل | 🔐]`'
 	else
-	lock_sticker = 'Unlock'
+	lock_sticker = '`[آزاد | 🔓]`'
 	end
 	------------
     if database:get('bot:tgservice:mute'..msg.chat_id_) then
-	lock_tgservice = 'Lock'
+	lock_tgservice = '`[قفل | 🔐]`'
 	else
-	lock_tgservice = 'Unlock'
+	lock_tgservice = '`[آزاد | 🔓]`'
 	end
 	------------
     if database:get('bot:webpage:mute'..msg.chat_id_) then
-	lock_wp = 'Lock'
+	lock_wp = '`[قفل | 🔐]`'
 	else
-	lock_wp = 'Unlock'
+	lock_wp = '`[آزاد | 🔓]`'
 	end
 	------------
     if database:get('bot:hashtag:mute'..msg.chat_id_) then
-	lock_htag = 'Lock'
+	lock_htag = '`[قفل | 🔐]`'
 	else
-	lock_htag = 'Unlock'
+	lock_htag = '`[آزاد | 🔓]`'
 	end
 	------------
     if database:get('bot:tag:mute'..msg.chat_id_) then
-	lock_tag = 'Lock'
+	lock_tag = '`[قفل | 🔐]`'
 	else
-	lock_tag = 'Unlock'
+	lock_tag = '`[آزاد | 🔓]`'
 	end
 	------------
     if database:get('bot:location:mute'..msg.chat_id_) then
-	lock_location = 'Lock'
+	lock_location = '`[قفل | 🔐]`'
 	else
-	lock_location = 'Unlock'
+	lock_location = '`[آزاد | 🔓]`'
 	end
 	------------
     if database:get('bot:contact:mute'..msg.chat_id_) then
-	lock_contact = 'Lock'
+	lock_contact = '`[قفل | 🔐]`'
 	else
-	lock_contact = 'Unlock'
+	lock_contact = '`[آزاد | 🔓]`'
 	end
 	------------
     if database:get('bot:english:mute'..msg.chat_id_) then
-	lock_english = 'Lock'
+	lock_english = '`[قفل | 🔐]`'
 	else
-	lock_english = 'Unlock'
+	lock_english = '`[آزاد | 🔓]`'
 	end
 	------------
     if database:get('bot:arabic:mute'..msg.chat_id_) then
-	lock_arabic = 'Lock'
+	lock_arabic = '`[قفل | 🔐]`'
 	else
-	lock_arabic = 'Unlock'
+	lock_arabic = '`[آزاد | 🔓]`'
 	end
 	------------
     if database:get('bot:forward:mute'..msg.chat_id_) then
-	lock_forward = 'Lock'
+	lock_forward = '`[قفل | 🔐]`'
 	else
-	lock_forward = 'Unlock'
+	lock_forward = '`[آزاد | 🔓]`'
 	end
 	------------
 	if database:get("bot:welcome"..msg.chat_id_) then
-	send_welcome = 'Enable'
+	send_welcome = '[فعال|✔]'
 	else
-	send_welcome = 'Disable'
+	send_welcome = '[غیر فعال|⭕]'
 	end
 	------------
 	local ex = database:ttl("bot:charge:"..msg.chat_id_)
                 if ex == -1 then
-				exp_dat = 'Unlimited'
+				exp_dat = 'نامحدود'
 				else
 				exp_dat = math.floor(ex / 86400) + 1
 			    end
  	------------
-	local TXT = "*Group Settings:*\n\n"
-	          .."*Welcome Msg* ~> `"..send_welcome.."`\n"
-	          .."*Stickers* ~> `"..lock_sticker.."`\n"
-	          .."*TgServices* ~> `"..lock_tgservice.."`\n"
-	          .."*Links* ~> `"..mute_links.."`\n"
-	          .."*WebPage* ~> `"..lock_wp.."`\n"
-	          .."*Tag{@}/Mention* ~> `"..lock_tag.."`\n"
-	          .."*Hashtag{#}* ~> `"..lock_htag.."`\n"
-	          .."*Share Contact* ~> `"..lock_contact.."`\n"
-	          .."*English* ~> `"..lock_english.."`\n"
-	          .."*Location* ~> `"..lock_location.."`\n"
-	          .."*Bots* ~> `"..mute_bots.."`\n"
-	          .."*Inline* ~> `"..mute_in.."`\n"
-	          .."*Arabic/Persian* ~> `"..lock_arabic.."`\n"
-	          .."*Forward* ~> `"..lock_forward.."`\n"
-	          .."*Edit Msg* ~> `"..mute_edit.."`\n"
-	          .."*Pin Msg* ~> `"..lock_pin.."`\n"
-	          .."*Flood* ~> `"..mute_flood.."`\n"
-	          .."*Flood Max* ~> `"..flood_m.."`\n"
-	          .."*Flood Time* ~> `"..flood_t.."`\n"
-	          .."*______________________*\n"
-	          .."*Mutes List:*\n\n"
-	          .."*Mute all* ~> `"..mute_all.."`\n"
-	          .."*Text* ~> `"..mute_text.."`\n"
-	          .."*Photos* ~> `"..mute_photo.."`\n"
-	          .."*Videos* ~> `"..mute_video.."`\n"
-	          .."*Gifs* ~> `"..mute_gifs.."`\n"
-	          .."*Musics* ~> `"..mute_music.."`\n"
-	          .."*Voice Msgs* ~> `"..mute_voice.."`\n"
-	          .."*______________________*\n"
-	          .."*Bot Commands* ~> `"..mute_cmd.."`\n"
-	          .."*Group Language* ~> *EN*\n"
-	          .."*Expire date* ~> `"..exp_dat.."`\n"
+	 local TXT = "============\n*﴿تنظیمات گروه﴾*\n============\n*قفل لینک* : "..mute_links.."\n" .."*قفل ادیت* : "..mute_edit.."\n" .."*قفل ربات* : "..mute_bots.."\n" .."*قفل فلود* : "..mute_flood.."\n" .."*قفل کیبورد انلاین* : "..mute_in.."\n" .."*قفل انگلیسی* : "..lock_english.."\n" .."*قفل فروارد* : "..lock_forward.."\n" .."*قفل پین پیام* : "..lock_pin.."\n" .."*قفل عربی* : "..lock_arabic.."\n" .."*قفل هشتنگ* : "..lock_htag.."\n".."*قفل یوزرنیم* : "..lock_tag.."\n" .."*قفل آرتی ال* : "..lock_wp.."\n" .."*قفل مکان* : "..lock_location.."\n" .."*قفل تگ سرویس* : "..lock_tgservice.."\n"
+.."============\n*﴿لیست میوت ها﴾*\n============\n*میوت عکس* : "..mute_photo.."\n" .."*میوت متن* : "..mute_text.."\n" .."*میوت گیف* : "..mute_gifs.."\n" .."*میوت وییس* : "..mute_voice.."\n" .."*میوت اهنگ* : "..mute_music.."\n" .."*میوت ویدیو* : "..mute_video.."\n"
+.."============\n *﴿دیگر تنظیمات﴾ *\n============\n*قفل دستور های ربات* : "..mute_cmd.."\n".."*پیام خوش امد* : "..send_welcome.."\n*تایم فلود*  "..flood_t.."\n" .."*تعداد فلود* : "..flood_m.."\n"
+.."*تاریخ انقضا* : "..exp_dat.."\n" .."*چنل* : @NotTeam"
          send(msg.chat_id_, msg.id_, 1, TXT, 1, 'md')
     end
 	-----------------------------------------------------------------------------------------------
@@ -2630,12 +2580,12 @@ local function gpro(extra, result, success)
          send(msg.chat_id_, msg.id_, 1, rules, 1, nil)
     end
 	-----------------------------------------------------------------------------------------------
-  	if text:match("^[#!/]share$") and is_sudo(msg) then
-       sendContact(msg.chat_id_, msg.id_, 0, 1, nil, 19097262199, 'BlackPlus', '(Test Version)', 196913743)
+  	if text:match("^[#!/]sh$") and is_sudo(msg) then
+       sendContact(msg.chat_id_, msg.id_, 0, 1, nil, 79066978730, 'MeGaNot', '(Test Version..!)', bot_id)
     end
 	-----------------------------------------------------------------------------------------------
-	if text:match("^[#!/]rename (.*)$") and is_owner(msg.sender_user_id_, msg.chat_id_) then
-	local txt = {string.match(text, "^[#/!](rename) (.*)$")} 
+	if text:match("^[#!/]setname (.*)$") and is_owner(msg.sender_user_id_, msg.chat_id_) then
+	local txt = {string.match(text, "^[#/!](setname) (.*)$")} 
 	     changetitle(msg.chat_id_, txt[2])
          send(msg.chat_id_, msg.id_, 1, '_Group name updated!_', 1, 'md')
     end
@@ -2660,7 +2610,7 @@ local function gpro(extra, result, success)
 		 database:set("bot:enable:"..msg.chat_id_,true)
     end
 	-----------------------------------------------------------------------------------------------
-	if text:match("^[#!/]charge stats") and is_mod(msg.sender_user_id_, msg.chat_id_) then
+	if text:match("^[#!/]stats charge") and is_mod(msg.sender_user_id_, msg.chat_id_) then
     local ex = database:ttl("bot:charge:"..msg.chat_id_)
        if ex == -1 then
 		send(msg.chat_id_, msg.id_, 1, '_نامحدود!_', 1, 'md')
@@ -2686,7 +2636,7 @@ local function gpro(extra, result, success)
   if text:match("^[#!/]leave(-%d+)") and is_admin(msg.sender_user_id_, msg.chat_id_) then
   	local txt = {string.match(text, "^[#/!](leave)(-%d+)$")} 
 	   send(msg.chat_id_, msg.id_, 1, 'ربات با موفقیت از گروه '..txt[2]..' خارج شد.', 1, 'md')
-	   send(txt[2], 0, 1, 'ربات به دلایلی گروه را ترک میکند\nبرای اطلاعات بیشتر میتوانید با @MehdiHS در ارتباط باشید.\nدر صورت ریپورت بودن میتوانید با ربات زیر به ما پیام دهید\n@BlackSupport_Bot\n\nChannel> @Black_Ch', 1, 'html')
+	   send(txt[2], 0, 1, 'ربات به دلایلی گروه را ترک میکند\nبرای اطلاعات بیشتر میتوانید با @Loper_lua در ارتباط باشید.\nدر صورت ریپورت بودن میتوانید با ربات زیر به ما پیام دهید\n@mohi_ReBot\n\nChannel> @NotTeam', 1, 'html')
 	   chat_leave(txt[2], bot_id)
   end
   -----------------------------------------------------------------------------------------------
@@ -2728,7 +2678,7 @@ local function gpro(extra, result, success)
   if text:match('^[#!/]add') and is_admin(msg.sender_user_id_, msg.chat_id_) then
        local txt = {string.match(text, "^[#/!](add)$")} 
        database:set("bot:charge:"..msg.chat_id_,true)
-	   send(msg.chat_id_, msg.id_, 1, 'Group Added!', 1, 'md')
+	   send(msg.chat_id_, msg.id_, 1, '*Done*\nBot Added To Group', 1, 'md')
 	   for k,v in pairs(sudo_users) do
 	      send(v, 0, 1, "*User"..msg.sender_user_id_.." Added bot to new group*" , 1, 'md')
        end
@@ -2738,16 +2688,16 @@ local function gpro(extra, result, success)
   if text:match('^[#!/]rem') and is_admin(msg.sender_user_id_, msg.chat_id_) then
        local txt = {string.match(text, "^[#/!](rem)$")} 
        database:del("bot:charge:"..msg.chat_id_)
-	   send(msg.chat_id_, msg.id_, 1, 'Group Removed!', 1, 'md')
+	   send(msg.chat_id_, msg.id_, 1, ' *Done*\nBot Removed To Group!', 1, 'md')
 	   for k,v in pairs(sudo_users) do
 	      send(v, 0, 1, "*User"..msg.sender_user_id_.." Removed bot from new group*" , 1, 'md')
        end
   end
   -----------------------------------------------------------------------------------------------
    if text:match('join(-%d+)') and is_admin(msg.sender_user_id_, msg.chat_id_) then
-       local txt = {string.match(text, "^[#/!](join)(-%d+)$")} 
+       local txt = {string.match(text, "^(join)(-%d+)$")} 
 	   send(msg.chat_id_, msg.id_, 1, 'با موفقیت تورو به گروه '..txt[3]..' اضافه کردم.', 1, 'md')
-	   send(txt[2], 0, 1, '"Admin Joined!🌚', 1, 'md')
+	   send(txt[2], 0, 1, '"Sudo Joined To Grpup', 1, 'md')
 	   add_user(txt[2], msg.sender_user_id_, 10)
   end
    -----------------------------------------------------------------------------------------------
@@ -2770,19 +2720,19 @@ else
     end
 	end
 	-----------------------------------------------------------------------------------------------
-   if text:match("^[#!/]me$") then
+   if text:match("^[#!/]id$") then
       if is_sudo(msg) then
 	  t = '*Sudo*'
       elseif is_admin(msg.sender_user_id_) then
-	  t = '*Global Admin*'
+	  t = '*Admin*'
       elseif is_owner(msg.sender_user_id_, msg.chat_id_) then
-	  t = '*Group Owner*'
+	  t = '*Owner*'
       elseif is_mod(msg.sender_user_id_, msg.chat_id_) then
 	  t = '*Moderator*'
       else
 	  t = '*Member*'
 	  end
-         send(msg.chat_id_, msg.id_, 1, '_Your ID >_ *'..msg.sender_user_id_..'*\n_Your Rank is:_ '..t, 1, 'md')
+         send(msg.chat_id_, msg.id_, 1, 'Bot ID : *308485826*\n_Your ID : _ *'..msg.sender_user_id_..'*\n_Your Rank :_ '..t, 1, 'md')
     end
    -----------------------------------------------------------------------------------------------
    if text:match("^[#!/]pin$") and is_mod(msg.sender_user_id_, msg.chat_id_) then
@@ -2809,110 +2759,7 @@ local pin_id = database:get('pinnedmsg'..msg.chat_id_)
    -----------------------------------------------------------------------------------------------
    if text:match("^[#!/]help$") and is_mod(msg.sender_user_id_, msg.chat_id_) then
    
-   local text = [[*راهنمای ربات
-
-برای قفل کردن
-
-/mute [links/webpage/sticker/service/tag/hashtag/contact/english/arabic/forward/all/photo/video/gifs/music/voice/text]
-
-/lock [edit/pin]
----------
-نکاتی درباره ی قفل های بالا
-
-برای مثال درصورتیکه قصد دارید ارسال لینک قفل شود از دستور
-/mute links
-استفاده کنید.
-
-هنگامی که از دستور 
-/lock edit 
-استفاده کنید وقتی اعضای گروه پیامی را ادیت کنند پیامشان پاک میشوذ
-در صورتی که دوست دارید بفهمید متن قبل از ادیت کردن پیام چه چیزی بوده میتوانید از دستور 
-/show edit 
-استفاده کنید.
-
-برای درست کار کردن دستور
-/lock pin
-باید ابتدا پیام مورد نظر را ارسال کرده و سپس با ریپلی کردن روی آن پیام و ارسال دستور 
-/pin
-و سپس ارسال دستور 
-/lock pin
-میتوانید دسترسی پین کردن پیام را از ادمین های گروه بگیرید و در صورت پین کردن پیامی توسط ادمین های دیگر ربات دوباره پیام شما را پین میکند
-
-
-/unmute [links/webpage/sticker/service/tag/hashtag/contact/english/arabic/forward/all/photo/video/gifs/music/voice/text]
-/unlock [edit/pin]
-برای باز کردن قفل موارد بالا
-
-/welcome on
-فعال کردن پیام خوشامد گویی
-
-/welcome off
-غیر فعال کردن پیام خوشامد گویی
-
-/get welcome متن مورد نظر
-تنظیم کردن متن دلخواه به عنوان متن خوشامد گویی
-
-برای نشان دادن ایدی و اسم از مثال زیر استفاده کنید.
-
-#set welcome Salam {username} 
-esmet {firstname}
-familit {lastname}
-
-
-/get welcome
-حذف کردن پیام خوشامد گویی
-
-/del welcome
-حذف کردن پیام خوشامد گویی
-
-/ban [فقط با ریپلی]
-اخراج دایمی کاربر
-/unban [فقط با ریپلی]
-حذف کاربر از لیست افراد محروم
-/banlist
-لیست افراد محروم شده
-
-/muteuser [فقط با ریپلی]
-اضافه کردن کاربر به لیست افراد میوت شده
-/unmuteuser [فقط با ریپلی]
-حذف کردن کاربر به لیست افراد میوت شده
-/mutelist
-لیست افراد میوت شده
-
-/promote [فقط با ریپلی]
-ارتقا دادن کاربر
-/demote [فقط با ریپلی]
-خلع مقام کردن کاربر
-/modlist
-لیست ادمین های ربات در گروه
-
-/getpro [1-10]
-دریافت عکس پروفایل شما
-مثال
-/getpro 2
-
-/setlink
-تنظیم لینک برای گروه
-
-/setrules قوانین
-تنظیم متن قوانین گروه
-
-/rules
-دریافت قوانین
-
-/settings
-دریافت تنظیمات گروه
-
-/clean [banlist/mutelist/modlist]
-حذف کردن لیست افراد بن/میوت/پروموت شده
-
-/del عدد
-پاک کردن پیام های اخیر گروه
-مثال
-/del 100
-برای پاک کردن 100 پیام آخر
-
-
+   local text = [[*
 راهنما بزودی کامل میشود!!!*
 ]]
                 send(msg.chat_id_, msg.id_, 1, text, 1, 'md')
@@ -2943,7 +2790,8 @@ familit {lastname}
 	end
   if not is_mod(result.sender_user_id_, result.chat_id_) then
    check_filter_words(result, text)
-   if text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") then
+   if text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or
+text:match("[Tt].[Mm][Ee]") or text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") then
    if database:get('bot:links:mute'..result.chat_id_) then
     local msgs = {[0] = data.message_id_}
        delete_msg(msg.chat_id_,msgs)
@@ -2989,7 +2837,7 @@ familit {lastname}
 	elseif database:get('editmsg'..msg.chat_id_) == 'didam' then
 	if database:get('bot:editid'..msg.message_id_) then
 		local old_text = database:get('bot:editid'..msg.message_id_)
-	    send(msg.chat_id_, msg.message_id_, 1, '_چرا ادیت میکنی😠\nمن دیدم که گفتی:_\n\n*'..old_text..'*', 1, 'md')
+	    send(msg.chat_id_, msg.message_id_, 1, '_چرا ادیت کردی😉\nمن دیدم که گفتی:_\n*'..old_text..'*', 1, 'md')
 	end
 	end
     getMessage(msg.chat_id_, msg.message_id_,get_msg_contact)
