@@ -2560,7 +2560,7 @@ local function gpro(extra, result, success)
 	 local TXT = "============\n*﴿تنظیمات گروه﴾*\n============\n*قفل لینک* : "..mute_links.."\n" .."*قفل ادیت* : "..mute_edit.."\n" .."*قفل ربات* : "..mute_bots.."\n" .."*قفل فلود* : "..mute_flood.."\n" .."*قفل کیبورد انلاین* : "..mute_in.."\n" .."*قفل انگلیسی* : "..lock_english.."\n" .."*قفل فروارد* : "..lock_forward.."\n" .."*قفل پین پیام* : "..lock_pin.."\n" .."*قفل عربی* : "..lock_arabic.."\n" .."*قفل هشتنگ* : "..lock_htag.."\n".."*قفل یوزرنیم* : "..lock_tag.."\n" .."*قفل آرتی ال* : "..lock_wp.."\n" .."*قفل مکان* : "..lock_location.."\n" .."*قفل تگ سرویس* : "..lock_tgservice.."\n"
 .."============\n*﴿لیست میوت ها﴾*\n============\n*میوت عکس* : "..mute_photo.."\n" .."*میوت متن* : "..mute_text.."\n" .."*میوت گیف* : "..mute_gifs.."\n" .."*میوت وییس* : "..mute_voice.."\n" .."*میوت اهنگ* : "..mute_music.."\n" .."*میوت ویدیو* : "..mute_video.."\n"
 .."============\n *﴿دیگر تنظیمات﴾ *\n============\n*قفل دستور های ربات* : "..mute_cmd.."\n".."*پیام خوش امد* : "..send_welcome.."\n*تایم فلود*  "..flood_t.."\n" .."*تعداد فلود* : "..flood_m.."\n"
-.."*تاریخ انقضا* : "..exp_dat.."\n" .."*چنل* : @NotTeam"
+.."*تاریخ انقضا* : "..exp_dat.."\n" .."*چنل* : @Teshne"
          send(msg.chat_id_, msg.id_, 1, TXT, 1, 'md')
     end
 	-----------------------------------------------------------------------------------------------
@@ -2636,7 +2636,7 @@ local function gpro(extra, result, success)
   if text:match("^[#!/]leave(-%d+)") and is_admin(msg.sender_user_id_, msg.chat_id_) then
   	local txt = {string.match(text, "^[#/!](leave)(-%d+)$")} 
 	   send(msg.chat_id_, msg.id_, 1, 'ربات با موفقیت از گروه '..txt[2]..' خارج شد.', 1, 'md')
-	   send(txt[2], 0, 1, 'ربات به دلایلی گروه را ترک میکند\nبرای اطلاعات بیشتر میتوانید با @Loper_lua در ارتباط باشید.\nدر صورت ریپورت بودن میتوانید با ربات زیر به ما پیام دهید\n@mohi_ReBot\n\nChannel> @NotTeam', 1, 'html')
+	   send(txt[2], 0, 1, 'ربات به دلایلی گروه را ترک میکند\nبرای اطلاعات بیشتر میتوانید با @pedaret در ارتباط باشید.\nدر صورت ریپورت بودن میتوانید با ربات زیر به ما پیام دهید\n@awminpv_bot\n\nChannel> @Teshne', 1, 'html')
 	   chat_leave(txt[2], bot_id)
   end
   -----------------------------------------------------------------------------------------------
@@ -2732,7 +2732,7 @@ else
       else
 	  t = '*Member*'
 	  end
-         send(msg.chat_id_, msg.id_, 1, 'Bot ID : *308485826*\n_Your ID : _ *'..msg.sender_user_id_..'*\n_Your Rank :_ '..t, 1, 'md')
+         send(msg.chat_id_, msg.id_, 1, 'Bot ID : *317956104*\n_Your ID : _ *'..msg.sender_user_id_..'*\n_Your Rank :_ '..t, 1, 'md')
     end
    -----------------------------------------------------------------------------------------------
    if text:match("^[#!/]pin$") and is_mod(msg.sender_user_id_, msg.chat_id_) then
