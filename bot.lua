@@ -2389,39 +2389,39 @@ local function gpro(extra, result, success)
 	-----------------------------------------------------------------------------------------------
   	 if text:match("^[#!/]settings$") and is_mod(msg.sender_user_id_, msg.chat_id_) then
 	if database:get('bot:muteall'..msg.chat_id_) then
-	mute_all = '`[قفل | 🔐]`'
+	mute_all = '` Enable ✅ `'
 	else
-	mute_all = '`[آزاد | 🔓]`'
+	mute_all = '` Disable ❎ `'
 	end
 	------------
 	if database:get('bot:text:mute'..msg.chat_id_) then
-	mute_text = '`[قفل | 🔐]`'
+	mute_text = '` Locked ❎  `'
 	else
-	mute_text = '`[آزاد | 🔓]`'
+	mute_text = '` Unlocked ✅`'
 	end
 	------------
 	if database:get('bot:photo:mute'..msg.chat_id_) then
-	mute_photo = '`[قفل | 🔐]`'
+	mute_photo = '` Locked ❎ `'
 	else
-	mute_photo = '`[آزاد | 🔓]`'
+	mute_photo = '` Unlocked ✅ `'
 	end
 	------------
 	if database:get('bot:video:mute'..msg.chat_id_) then
-	mute_video = '`[قفل | 🔐]`'
+	mute_video = '` Locked ❎`'
 	else
-	mute_video = '`[آزاد | 🔓]`'
+	mute_video = '` Unlocked ✅ `'
 	end
 	------------
 	if database:get('bot:gifs:mute'..msg.chat_id_) then
-	mute_gifs = '`[قفل | 🔐]`'
+	mute_gifs = '` Locked ❎ `'
 	else
-	mute_gifs = '`[آزاد | 🔓]`'
+	mute_gifs = '` Unlocked ✅ `'
 	end
 	------------
 	if database:get('anti-flood:'..msg.chat_id_) then
-	mute_flood = '`[آزاد | 🔓]`'
+	mute_flood = '` Unlocked ✅ `'
 	else
-	mute_flood = '`[قفل | 🔐]`'
+	mute_flood = '` Locked ❎ `'
 	end
 	------------
 	if not database:get('flood:max:'..msg.chat_id_) then
@@ -2437,87 +2437,87 @@ local function gpro(extra, result, success)
 	end
 	------------
 	if database:get('bot:music:mute'..msg.chat_id_) then
-	mute_music = '`[قفل | 🔐]`'
+	mute_music = '` Locked ❎ `'
 	else
-	mute_music = '`[آزاد | 🔓]`'
+	mute_music = '` Unlocked ✅ `'
 	end
 	------------
 	if database:get('bot:bots:mute'..msg.chat_id_) then
-	mute_bots = '`[قفل | 🔐]`'
+	mute_bots = '` Locked ❎ `'
 	else
-	mute_bots = '`[آزاد | 🔓]`'
+	mute_bots = '` Unlocked ✅ `'
 	end
 	------------
 	if database:get('bot:inline:mute'..msg.chat_id_) then
-	mute_in = '`[قفل | 🔐]`'
+	mute_in = '` Locked ❎ `'
 	else
-	mute_in = '`[آزاد | 🔓]`'
+	mute_in = '` Unlocked ✅ `'
 	end
 	------------
 	if database:get('bot:cmds'..msg.chat_id_) then
-	mute_cmd = '[غیر فعال|⭕]'
+	mute_cmd = '` Disable ❎ `'
 	else
-	mute_cmd = '[فعال|✔]'
+	mute_cmd = '` Enable ✅ `'
 	end
 	------------
 	if database:get('bot:voice:mute'..msg.chat_id_) then
-	mute_voice = '`[قفل | 🔐]`'
+	mute_voice = '` Locked ❎ `'
 	else
-	mute_voice = '`[آزاد | 🔓]`'
+	mute_voice = '` Unlocked ✅ `'
 	end
 	------------
 	if database:get('editmsg'..msg.chat_id_) then
-	mute_edit = '`[قفل | 🔐]`'
+	mute_edit = '` Locked ❎ `'
 	else
-	mute_edit = '`[آزاد | 🔓]`'
+	mute_edit = '` Unlocked ✅ `'
 	end
     ------------
 	if database:get('bot:links:mute'..msg.chat_id_) then
-	mute_links = '`[قفل | 🔐]`'
+	mute_links = '` Locked ❎ `'
 	else
-	mute_links = '`[آزاد | 🔓]`'
+	mute_links = '` Unlocked ✅ `'
 	end
     ------------
 	if database:get('bot:pin:mute'..msg.chat_id_) then
-	lock_pin = '`[قفل | 🔐]`'
+	lock_pin = '` Locked ❎ `'
 	else
-	lock_pin = '`[آزاد | 🔓]`'
+	lock_pin = '` Unlocked ✅ `'
 	end 
     ------------
 	if database:get('bot:sticker:mute'..msg.chat_id_) then
-	lock_sticker = '`[قفل | 🔐]`'
+	lock_sticker = '` Locked ✅ `'
 	else
-	lock_sticker = '`[آزاد | 🔓]`'
+	lock_sticker = '` Unlocked ✅ `'
 	end
 	------------
     if database:get('bot:tgservice:mute'..msg.chat_id_) then
-	lock_tgservice = '`[قفل | 🔐]`'
+	lock_tgservice = '` Locked ❎ `'
 	else
-	lock_tgservice = '`[آزاد | 🔓]`'
+	lock_tgservice = '` Unlocked ✅ `'
 	end
 	------------
     if database:get('bot:webpage:mute'..msg.chat_id_) then
-	lock_wp = '`[قفل | 🔐]`'
+	lock_wp = '` Locked ❎ `'
 	else
-	lock_wp = '`[آزاد | 🔓]`'
+	lock_wp = '` Unlocked ✅ `'
 	end
 	------------
     if database:get('bot:hashtag:mute'..msg.chat_id_) then
-	lock_htag = '`[قفل | 🔐]`'
+	lock_htag = '` Locked ❎ `'
 	else
-	lock_htag = '`[آزاد | 🔓]`'
+	lock_htag = '` Unlocked ✅ `'
 	end
 	------------
     if database:get('bot:tag:mute'..msg.chat_id_) then
-	lock_tag = '`[قفل | 🔐]`'
+	lock_tag = '` Locked ❎ `'
 	else
-	lock_tag = '`[آزاد | 🔓]`'
+	lock_tag = '` Unlocked ✅ `'
 	end
 	------------
     if database:get('bot:location:mute'..msg.chat_id_) then
-	lock_location = '`[قفل | 🔐]`'
+	lock_location = '` Locked ❎ `'
 	else
-	lock_location = '`[آزاد | 🔓]`'
+	lock_location = '` Unlocked ✅ `'
 	end
 	------------
     if database:get('bot:contact:mute'..msg.chat_id_) then
@@ -2527,27 +2527,27 @@ local function gpro(extra, result, success)
 	end
 	------------
     if database:get('bot:english:mute'..msg.chat_id_) then
-	lock_english = '`[قفل | 🔐]`'
+	lock_english = '` Locked ❎ `'
 	else
-	lock_english = '`[آزاد | 🔓]`'
+	lock_english = '` Unlocked ✅ `'
 	end
 	------------
     if database:get('bot:arabic:mute'..msg.chat_id_) then
-	lock_arabic = '`[قفل | 🔐]`'
+	lock_arabic = '` Locked ❎ `'
 	else
-	lock_arabic = '`[آزاد | 🔓]`'
+	lock_arabic = '` Unlocked ✅ `'
 	end
 	------------
     if database:get('bot:forward:mute'..msg.chat_id_) then
-	lock_forward = '`[قفل | 🔐]`'
+	lock_forward = '` Locked ❎ `'
 	else
-	lock_forward = '`[آزاد | 🔓]`'
+	lock_forward = '` Unlocked ✅ `'
 	end
 	------------
 	if database:get("bot:welcome"..msg.chat_id_) then
-	send_welcome = '[فعال|✔]'
+	send_welcome = '` Enabled ✅ `'
 	else
-	send_welcome = '[غیر فعال|⭕]'
+	send_welcome = '` Disabled ❎ `'
 	end
 	------------
 	local ex = database:ttl("bot:charge:"..msg.chat_id_)
@@ -2557,10 +2557,10 @@ local function gpro(extra, result, success)
 				exp_dat = math.floor(ex / 86400) + 1
 			    end
  	------------
-	 local TXT = "============\n*﴿تنظیمات گروه﴾*\n============\n*قفل لینک* : "..mute_links.."\n" .."*قفل ادیت* : "..mute_edit.."\n" .."*قفل ربات* : "..mute_bots.."\n" .."*قفل فلود* : "..mute_flood.."\n" .."*قفل کیبورد انلاین* : "..mute_in.."\n" .."*قفل انگلیسی* : "..lock_english.."\n" .."*قفل فروارد* : "..lock_forward.."\n" .."*قفل پین پیام* : "..lock_pin.."\n" .."*قفل عربی* : "..lock_arabic.."\n" .."*قفل هشتنگ* : "..lock_htag.."\n".."*قفل یوزرنیم* : "..lock_tag.."\n" .."*قفل آرتی ال* : "..lock_wp.."\n" .."*قفل مکان* : "..lock_location.."\n" .."*قفل تگ سرویس* : "..lock_tgservice.."\n"
-.."============\n*﴿لیست میوت ها﴾*\n============\n*میوت عکس* : "..mute_photo.."\n" .."*میوت متن* : "..mute_text.."\n" .."*میوت گیف* : "..mute_gifs.."\n" .."*میوت وییس* : "..mute_voice.."\n" .."*میوت اهنگ* : "..mute_music.."\n" .."*میوت ویدیو* : "..mute_video.."\n"
+	 local TXT = "============\n*﴿ ⚙Group Settings⚙ ﴾*\n============\n*Lock Links* : ~> "..mute_links.."\n" .."*Lock Edit* : ~> "..mute_edit.."\n" .."*Lock Bots(API)* : ~> "..mute_bots.."\n" .."*Lock Flood* : ~> "..mute_flood.."\n" .."*Lock Inline* : ~> "..mute_in.."\n" .."*Lock English* : ~> "..lock_english.."\n" .."*Lock Forward* : ~> "..lock_forward.."\n" .."*Lock Pin* : ~> "..lock_pin.."\n" .."*Lock Arabic/Persian* : ~> "..lock_arabic.."\n" .."*Lock Hashtag* : ~> "..lock_htag.."\n".."*Lock Username* : ~> "..lock_tag.."\n" .."*Lock RTL* : ~> "..lock_wp.."\n" .."*Lock Location* : ~> "..lock_location.."\n" .."*Lock TgService* : ~> "..lock_tgservice.."\n"
+.."============\n*﴿ 🔇MuteList🔇 ﴾*\n============\n*Mute Photo* : ~> "..mute_photo.."\n" .."*Mute Text* : ~> "..mute_text.."\n" .."*Mute Gif* : ~> "..mute_gifs.."\n" .."*Mute Voice* : ~> "..mute_voice.."\n" .."*Mute Music* : ~> "..mute_music.."\n" .."*Mute Video* : ~> "..mute_video.."\n"
 .."============\n *﴿دیگر تنظیمات﴾ *\n============\n*قفل دستور های ربات* : "..mute_cmd.."\n".."*پیام خوش امد* : "..send_welcome.."\n*تایم فلود*  "..flood_t.."\n" .."*تعداد فلود* : "..flood_m.."\n"
-.."*تاریخ انقضا* : "..exp_dat.."\n" .."*چنل* : @Teshne"
+.."*Expire Time* : ~> "..exp_dat.."\n" .."*Channel* : ~>   @Teshne"
          send(msg.chat_id_, msg.id_, 1, TXT, 1, 'md')
     end
 	-----------------------------------------------------------------------------------------------
@@ -2581,7 +2581,7 @@ local function gpro(extra, result, success)
     end
 	-----------------------------------------------------------------------------------------------
   	if text:match("^[#!/]sh$") and is_sudo(msg) then
-       sendContact(msg.chat_id_, msg.id_, 0, 1, nil, 79066978730, 'MeGaNot', '(Test Version..!)', bot_id)
+       sendContact(msg.chat_id_, msg.id_, 0, 1, nil, 15713030002, 'Mega Maximus', '(Test Version..!)', 317956104)
     end
 	-----------------------------------------------------------------------------------------------
 	if text:match("^[#!/]setname (.*)$") and is_owner(msg.sender_user_id_, msg.chat_id_) then
@@ -2598,7 +2598,7 @@ local function gpro(extra, result, success)
     end
 	-----------------------------------------------------------------------------------------------
 	if text:match("^[#!/]setphoto$") and is_owner(msg.sender_user_id_, msg.chat_id_) then
-         send(msg.chat_id_, msg.id_, 1, '_Please send a photo noew!_', 1, 'md')
+         send(msg.chat_id_, msg.id_, 1, '_Please send a photo now!_', 1, 'md')
 		 database:set('bot:setphoto'..msg.chat_id_..':'..msg.sender_user_id_,true)
     end
 	-----------------------------------------------------------------------------------------------
@@ -2720,7 +2720,7 @@ else
     end
 	end
 	-----------------------------------------------------------------------------------------------
-   if text:match("^[#!/]id$") then
+   if text:match("^[#!/]userid$") then
       if is_sudo(msg) then
 	  t = '*Sudo*'
       elseif is_admin(msg.sender_user_id_) then
