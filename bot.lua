@@ -1913,7 +1913,7 @@ local user_msgs = database:get('user:msgs'..msg.chat_id_..':'..msg.sender_user_i
 	  end
             texts = '*Username* : `@'..ap[2]..'`\n*ID* : `('..result.id_..')`\n*> Rank* : `'..t..'`'
             else 
-            texts = '<code>User not found!</code>'
+            texts = '<code>User not found!!</code>'
     end
 	         send(msg.chat_id_, msg.id_, 1, texts, 1, 'md')
     end
