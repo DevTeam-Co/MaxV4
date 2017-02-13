@@ -2476,7 +2476,7 @@ local function gpro(extra, result, success)
 	end
 	------------
 	if database:get('editmsg'..msg.chat_id_) then
-	mute_edit = 'Locked  `'
+	mute_edit = '`Locked  `'
 	else
 	mute_edit = '`Unlocked  `'
 	end
@@ -2538,30 +2538,30 @@ local function gpro(extra, result, success)
     if database:get('bot:english:mute'..msg.chat_id_) then
 	lock_english = '`Locked`'
 	else
-	lock_english = 'Unlocked`'
+	lock_english = '`Unlocked`'
 	end
 	------------
     if database:get('bot:arabic:mute'..msg.chat_id_) then
 	lock_arabic = '`Locked`'
 	else
-	lock_arabic = 'Unlocked`'
+	lock_arabic = '`Unlocked`'
 	end
 	------------
     if database:get('bot:forward:mute'..msg.chat_id_) then
-	lock_forward = 'Locked`'
+	lock_forward = '`Locked`'
 	else
-	lock_forward = 'Unlocked `'
+	lock_forward = '`Unlocked `'
 	end
 	------------
 	if database:get("bot:welcome"..msg.chat_id_) then
-	send_welcome = 'Enabled `'
+	send_welcome = '`Enabled `'
 	else
-	send_welcome = 'Disabled  `'
+	send_welcome = '`Disabled  `'
 	end
 	------------
 	local ex = database:ttl("bot:charge:"..msg.chat_id_)
                 if ex == -1 then
-				exp_dat = 'نامحدود'
+				exp_dat = '`Unlimited`'
 				else
 				exp_dat = math.floor(ex / 86400) + 1
 			    end
