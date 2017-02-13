@@ -1879,13 +1879,22 @@ if database:get('bot:forward:mute'..msg.chat_id_) then
     send(msg.chat_id_, msg.id_, 1, '`'..text..'`', 'md')
     end
 	-----------------------------------------------------------------------------------------------
-    if text:match("^[#!/]id$") and msg.reply_to_message_id_ ~= 0 then
-      function id_by_reply(extra, result, success)
-	  local user_msgs = database:get('user:msgs'..result.chat_id_..':'..result.sender_user_id_)
-        send(msg.chat_id_, msg.id_, 1, "*User ID:* `"..result.sender_user_id_.."`", 1, 'md')
-        end
-   getMessage(msg.chat_id_, msg.reply_to_message_id_,id_by_reply)
-  end
+    if text:match("^[#!/]id$") and msg.reply_to_message_id_ == 0  then
+local function getpro(extra, result, success)
+local user_msgs = database:get('user:msgs'..msg.chat_id_..':'..msg.sender_user_id_)
+   if result.photos_[0] then
+            sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_,'> Supergroup ID: '..msg.chat_id_..'\n> Your ID: '..msg.sender_user_id_..'\n> Number of your Msgs: '..user_msgs,msg.id_,msg.id_)
+   else
+      send(msg.chat_id_, msg.id_, 1, "You Have'nt Profile Photo!!\n\n> *Supergroup ID:* `"..msg.chat_id_.."`\n*> Your ID:* `"..msg.sender_user_id_.."`\n*> Number of your Msgs: *`"..user_msgs.."`", 1, 'md')
+   end
+   end
+   tdcli_function ({
+    ID = "GetUserProfilePhotos",
+    user_id_ = msg.sender_user_id_,
+    offset_ = 0,
+    limit_ = 1
+  }, getpro, nil)
+	end
   -----------------------------------------------------------------------------------------------
     if text:match("^[#!/]id @(.*)$") then
 	local ap = {string.match(text, "^[#/!](id) @(.*)$")} 
