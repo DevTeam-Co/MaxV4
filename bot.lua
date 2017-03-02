@@ -2687,7 +2687,7 @@ local function gpro(extra, result, success)
   if text:match('^[#!/]add') and is_admin(msg.sender_user_id_, msg.chat_id_) then
        local txt = {string.match(text, "^[#/!](add)$")} 
        database:set("bot:charge:"..msg.chat_id_,true)
-	   send(msg.chat_id_, msg.id_, 1, '*Done*\nBot Added To Group', 1, 'md')
+	   send(msg.chat_id_, msg.id_, 1, '*Done*\n\n`New Group has been Added!`', 1, 'md')
 	   for k,v in pairs(sudo_users) do
 	      send(v, 0, 1, "*User"..msg.sender_user_id_.." Added bot to new group*" , 1, 'md')
        end
@@ -2741,7 +2741,7 @@ else
       else
 	  t = '*Member*'
 	  end
-         send(msg.chat_id_, msg.id_, 1, 'Bot ID : *317956104*\n_Your ID : _ *'..msg.sender_user_id_..'*\n_Your Rank :_ '..t, 1, 'md')
+         send(msg.chat_id_, msg.id_, 1, '_Your ID : _ *'..msg.sender_user_id_..'*\n_Your Rank :_ '..t, 1, 'md')
     end
    -----------------------------------------------------------------------------------------------
    if text:match("^[#!/]pin$") and is_mod(msg.sender_user_id_, msg.chat_id_) then
