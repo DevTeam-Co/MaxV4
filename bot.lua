@@ -6046,7 +6046,7 @@ function tdcli_update_callback(data)
     -- Number Update 5
     -----------------------------------------------------------------------------------------------
   end
-elseif (data.ID == "UpdateChat") then
+if (data.ID == "UpdateChat") then
     chat = data.chat_
     chats[chat.id_] = chat
     -----------------------------------------------------------------------------------------------
