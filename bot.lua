@@ -6032,21 +6032,17 @@ function tdcli_update_callback(data)
         end
         -----------------------------------------------------------------------------------------------
         if text:match("^[Pp]ayping 1$") and is_sudo(msg) then
-          send(msg.chat_id_, msg.id_, 1, 'https://www.payping.ir/Raptor/5000', 1, 'html')
+          send(msg.chat_id_, msg.id_, 1, 'https://www.payping.ir/Raptor', 1, 'html')
         end
       end
-	  if text:match("^[Pp]ayping 2") and is_sudo(msg) then
-	  send(msg.chat_id_, msg.id_, 1, 'https://www.payping.ir/Raptor/10000' , 1, 'html')
-	  end
-	  end
+	
       -----------------------------------------------------------------------------------------------
     end
     -----------------------------------------------------------------------------------------------
     -- END CODE --
     -- Number Update 5
     -----------------------------------------------------------------------------------------------
-  end
-if (data.ID == "UpdateChat") then
+  elseif (data.ID == "UpdateChat") then
     chat = data.chat_
     chats[chat.id_] = chat
     -----------------------------------------------------------------------------------------------
@@ -6107,5 +6103,5 @@ if (data.ID == "UpdateChat") then
     tdcli_function ({ID="GetChats", offset_order_="9223372036854775807", offset_chat_id_=0, limit_=20}, dl_cb, nil)
   end
   -----------------------------------------------------------------------------------------------
-
+end
 -- END VERSION 3.5
