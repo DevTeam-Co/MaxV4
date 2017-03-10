@@ -6036,7 +6036,8 @@ function tdcli_update_callback(data)
         end
 				end
 			if text:match("^[Hh]elp lock$") then
-				send(msg.chat_id, msg.id_, 1, "*Help locks for Ultra Maximus*\n\n_Lock [links\contact\fwd\text\photo\videos\gifs\music\voice\file\sticker\location\flood\tgservice\markdown\english\farsi\inline\pin\edit\bots\hashtag\tag\webpage\spam]_\n\n_Unlock [links\contact\fwd\text\photo\videos\gifs\music\voice\file\sticker\location\flood\tgservice\markdown\english\farsi\inline\pin\edit\bots\hashtag\tag\webpage\spam]_", 1, 'md')
+				local help '*Help locks for Ultra Maximus*\n\n_Lock [links\contact\fwd\text\photo\videos\gifs\music\voice\file\sticker\location\flood\tgservice\markdown\english\farsi\inline\pin\edit\bots\hashtag\tag\webpage\spam]_\n\n_Unlock [links\contact\fwd\text\photo\videos\gifs\music\voice\file\sticker\location\flood\tgservice\markdown\english\farsi\inline\pin\edit\bots\hashtag\tag\webpage\spam]_'
+				send(msg.chat_id, msg.id_, 1, help, 1, 'md')
 				end
 			end
 	
