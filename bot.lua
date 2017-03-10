@@ -6035,11 +6035,6 @@ function tdcli_update_callback(data)
           send(msg.chat_id_, msg.id_, 1, 'https://www.payping.ir/Raptor', 1, 'html')
         end
 				end
-			if text:match("^[Hh]elp lock$") then
-				return '*Help locks for Ultra Maximus*\n\n_Lock [links\contact\fwd\text\photo\videos\gifs\music\voice\file\sticker\location\flood\tgservice\markdown\english\farsi\inline\pin\edit\bots\hashtag\tag\webpage\spam]_\n\n_Unlock [links\contact\fwd\text\photo\videos\gifs\music\voice\file\sticker\location\flood\tgservice\markdown\english\farsi\inline\pin\edit\bots\hashtag\tag\webpage\spam]_'
-				end
-			end
-	
       -----------------------------------------------------------------------------------------------
     end
     -----------------------------------------------------------------------------------------------
