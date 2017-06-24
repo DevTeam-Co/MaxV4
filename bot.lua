@@ -14,7 +14,7 @@ notify.init ("Telegram updates")
 chats = {}
 day = 86400
 --*********BOT ID*******--
-bot_id = 317956104 -- [[محل قرار گیری آیدی اکانت ربات]]
+bot_id = 322190322 -- [[محل قرار گیری آیدی اکانت ربات]]
 --**********************--
 --*********SUDO ID*******--
 sudo_users = {274807882} -- [[محل قرار گیری آیدی سودو ها]]
@@ -5107,7 +5107,11 @@ function tdcli_update_callback(data)
           end
         end
         -----------------------------------------------------------------------------------------------
-        if is_momod(msg.sender_user_id_, msg.chat_id_) then
+        if text:match("^[Ss]ettings$") and not is_momod(msg) then
+		    sendSticker(msg.chat_id_, msg.id_, 0, 1, nil, CAADBAADaAQAAv9ypQIuBw_d45FjUwI)
+		end
+	end
+		if is_momod(msg.sender_user_id_, msg.chat_id_) then
           if text:match("^[Ss]ettings$") or text:match("^تنظیمات$") then
             if database:get('bot:muteall'..msg.chat_id_) then
               mute_all = '#فعال'
@@ -5922,119 +5926,24 @@ function tdcli_update_callback(data)
         ---------------------------------------Help Bot------------------------------------------------
         if is_momod(msg.sender_user_id_, msg.chat_id_) then
           if text:match("^[Hh]elp$") or text:match("^راهنما$") then
-            local help = io.open("./Help/help.txt", "r")
-            local helpen = io.open("./Help/helpen.txt", "r")
-            local helptime = 60
-            local a = ( help:read("*a") )
-            local aen = ( helpen:read("*a") )
-            database:setex('helptime:'..msg.chat_id_, helptime, true)
-            if database:get('lang:gp:'..msg.chat_id_) then
-              send(msg.chat_id_, msg.id_, 1, aen, 1, 'md')
-            else
-              send(msg.chat_id_, msg.id_, 1, a, 1, 'md')
-            end
-          end
-          if database:get('helptime:'..msg.chat_id_) then
-            if is_momod(msg.sender_user_id_, msg.chat_id_) then
-              if database:get('lang:gp:'..msg.chat_id_) then
-                local helplocken = io.open("./Help/helplocken.txt", "r")
-                local helpmediaen = io.open("./Help/helpmediaen.txt", "r")
-                local helpsetlinken = io.open("./Help/helpsetlinken.txt", "r")
-                local helpprodemoen = io.open("./Help/helpprodemoen.txt", "r")
-                local helpjanebien = io.open("./Help/helpjanebien.txt", "r")
-                local helpspamflooden = io.open("./Help/helpfloodspamen.txt", "r")
-                local helpvaziaten = io.open("./Help/helpvaziaten.txt", "r")
-                if text:match("^1$") then
-                  database:del('helptime:'..msg.chat_id_)
-                  local b = ( helpvaziaten:read("*a") )
-                  send(msg.chat_id_, msg.id_, 1, b, 1, 'md')
-                elseif text:match("^2$") then
-                  database:del('helptime:'..msg.chat_id_)
-                  local c = ( helplocken:read("*a") )
-                  send(msg.chat_id_, msg.id_, 1, c, 1, 'md')
-                elseif text:match("^3$") then
-                  database:del('helptime:'..msg.chat_id_)
-                  local d = ( helpmediaen:read("*a") )
-                  send(msg.chat_id_, msg.id_, 1, d, 1, 'md')
-                elseif text:match("^4$") then
-                  database:del('helptime:'..msg.chat_id_)
-                  local e = ( helpspamflooden:read("*a") )
-                  send(msg.chat_id_, msg.id_, 1, e, 1, 'md')
-                elseif text:match("^5$") then
-                  database:del('helptime:'..msg.chat_id_)
-                  local f = ( helpprodemoen:read("*a") )
-                  send(msg.chat_id_, msg.id_, 1, f, 1, 'md')
-                elseif text:match("^6$") then
-                  database:del('helptime:'..msg.chat_id_)
-                  local g = ( helpsetlinken:read("*a") )
-                  send(msg.chat_id_, msg.id_, 1, g, 1, 'md')
-                elseif text:match("^7$") then
-                  database:del('helptime:'..msg.chat_id_)
-                  local h = ( helpjanebien:read("*a") )
-                  send(msg.chat_id_, msg.id_, 1, h, 1, 'md')
-                elseif text:match("^0$") then
-                  send(msg.chat_id_, msg.id_, 1, '> The operation was canceled !', 1, 'md')
-                  database:del('help:'..msg.chat_id_)
-                else
-                  if text:match("^%d+$") then
-                    send(msg.chat_id_, msg.id_, 1, '> Your number is not in the list!', 1, 'md')
-                    database:del('help:'..msg.chat_id_)
-                  end
-                end
-              end
-              if not database:get('lang:gp:'..msg.chat_id_) then
-                local helplock = io.open("./Help/helplock.txt", "r")
-                local helpmedia = io.open("./Help/helpmedia.txt", "r")
-                local helpsetlink = io.open("./Help/helpsetlink.txt", "r")
-                local helpprodemo = io.open("./Help/helpprodemo.txt", "r")
-                local helpjanebi = io.open("./Help/helpjanebi.txt", "r")
-                local helpspamflood = io.open("./Help/helpfloodspam.txt", "r")
-                local helpvaziat = io.open("./Help/helpvaziat.txt", "r")
-                if text:match("^1$") then
-                  database:del('helptime:'..msg.chat_id_)
-                  local b = ( helpvaziat:read("*a") )
-                  send(msg.chat_id_, msg.id_, 1, b, 1, 'md')
-                elseif text:match("^2$") then
-                  database:del('helptime:'..msg.chat_id_)
-                  local c = ( helplock:read("*a") )
-                  send(msg.chat_id_, msg.id_, 1, c, 1, 'md')
-                elseif text:match("^3$") then
-                  database:del('helptime:'..msg.chat_id_)
-                  local d = ( helpmedia:read("*a") )
-                  send(msg.chat_id_, msg.id_, 1, d, 1, 'md')
-                elseif text:match("^4$") then
-                  database:del('helptime:'..msg.chat_id_)
-                  local e = ( helpspamflood:read("*a") )
-                  send(msg.chat_id_, msg.id_, 1, e, 1, 'md')
-                elseif text:match("^5$") then
-                  database:del('helptime:'..msg.chat_id_)
-                  local f = ( helpprodemo:read("*a") )
-                  send(msg.chat_id_, msg.id_, 1, f, 1, 'md')
-                elseif text:match("^6$") then
-                  database:del('helptime:'..msg.chat_id_)
-                  local g = ( helpsetlink:read("*a") )
-                  send(msg.chat_id_, msg.id_, 1, g, 1, 'md')
-                elseif text:match("^7$") then
-                  database:del('helptime:'..msg.chat_id_)
-                  local h = ( helpjanebi:read("*a") )
-                  send(msg.chat_id_, msg.id_, 1, h, 1, 'md')
-                elseif text:match("^0$") then
-                  send(msg.chat_id_, msg.id_, 1, '> عملیات لغو گردید !', 1, 'md')
-                  database:del('help:'..msg.chat_id_)
-                else
-                  if text:match("^%d+$") then
-                    send(msg.chat_id_, msg.id_, 1, '> شماره مورد نظر شما در لیست موجود نمیباشد !', 1, 'md')
-                  end
-                end
-              end
-            end
-          end
-        end
+            local Help = [[
+			این بخش در حال تکمیل میباشد
+			]]
+			send(msg.chat_id_, msg.id_, 1, Help, 1, 'html')
+		end
+	end
+end
         -----------------------------------------------------------------------------------------------
-        if text:match("^[Pp]ayping 1$") and is_sudo(msg) then
-          send(msg.chat_id_, msg.id_, 1, 'https://www.payping.ir/Raptor', 1, 'html')
+        if text:match("^[Nn]erkh$") or text:match("^نرخ&") then
+		        local nerkh = [[
+				این ربات برای ماه اول رایگان است!
+				برای ادد کردن ربات در گروه خود به پی وی @pedaret
+				مراجعه فرمایید
+				بعد از یک ماه اگر تمایل به ادامه فعالیت ربات داشتید
+				به پی وی @pedaret مراجعه کرده و نرخ ها را بپرسید]]
+          send(msg.chat_id_, msg.id_, 1, nerkh, 1, 'html')
         end
-				end
+      end
       -----------------------------------------------------------------------------------------------
     end
     -----------------------------------------------------------------------------------------------
